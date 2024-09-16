@@ -1,0 +1,29 @@
+﻿<Page x:Class="GGUFLoader.UserPages.OnlineModelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GGUFLoader.UserPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OnlineModelPage">
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" Height="45">
+                <ComboBox x:Name="BrandComboBox" SelectionChanged="BrandComboBox_SelectionChanged" Margin="15,9,0,0" Width="135"/>
+                <Button x:Name="DownloadButton" Content="Download"  Click="DownloadButton_Click" Margin="162,11,0,0" VerticalAlignment="Top"/>
+            </Grid>
+            <ListView x:Name="ModelListView" DockPanel.Dock="Top">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Filename" DisplayMemberBinding="{Binding Filename}" Width="250"/>
+                        <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}" Width="100"/>
+                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="100"/>
+                        <GridViewColumn Header="Download URL" DisplayMemberBinding="{Binding Download_Url}" Width="350"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+        </DockPanel>
+    </Grid>
+</Page>

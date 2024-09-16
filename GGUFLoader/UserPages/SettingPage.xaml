@@ -1,0 +1,31 @@
+﻿<Page x:Class="GGUFLoader.UserPages.SettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GGUFLoader.UserPages"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SettingPage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 安装目录标签和显示 -->
+        <TextBlock Grid.Row="0" Text="当前安装目录：" FontWeight="Bold" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="1" x:Name="InstallPathTextBlock" Text="未设置安装目录" Margin="0,5,0,10" />
+
+        <!-- 选择安装目录按钮 -->
+        <Button Grid.Row="2" Content="选择安装目录" Width="150" HorizontalAlignment="Left" Click="SelectInstallPath_Click" />
+
+        <!-- 清除数据按钮 -->
+        <Button Grid.Row="2" Content="清除数据" Width="150" HorizontalAlignment="Right" Click="ClearData_Click" />
+
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+﻿<Page x:Class="GGUFLoader.UserPages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GGUFLoader.UserPages" xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+
+            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Robot}" FontSize="72" Margin="0,0,0,20"/>
+
+            <TextBlock Text="This is a LLaMa(.GGUF File) model loader." FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
+            <TextBlock Text="From the night when SmaZone was tortured by Ollama" FontSize="20" TextAlignment="Center" Foreground="#FF848484"/>
+
+            <Button Content="Go To Download！" HorizontalAlignment="Center" Margin="0,20,0,0" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GGUFLoader", "GGUFLoader\GGUFLoader.csproj", "{8A52B13C-59F9-4D44-801F-6083E9EF678C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{A1670389-2643-4C59-A645-88E0D8FB73A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A52B13C-59F9-4D44-801F-6083E9EF678C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A52B13C-59F9-4D44-801F-6083E9EF678C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A52B13C-59F9-4D44-801F-6083E9EF678C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A52B13C-59F9-4D44-801F-6083E9EF678C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1670389-2643-4C59-A645-88E0D8FB73A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1670389-2643-4C59-A645-88E0D8FB73A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1670389-2643-4C59-A645-88E0D8FB73A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1670389-2643-4C59-A645-88E0D8FB73A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC7A9566-9892-4340-AB24-CD68AC0E75DD}
+	EndGlobalSection
+EndGlobal
