@@ -31,6 +31,7 @@ namespace GGUFLoader
             LocalPage_btn.PreviewMouseLeftButtonUp += (_, _) => { MainFrame.Navigate(new LocalModelPage()); };
             OnlinePage_btn.PreviewMouseLeftButtonUp += (_, _) => { MainFrame.Navigate(new OnlineModelPage()); };
             Setting_btn.PreviewMouseLeftButtonUp += (_, _) => { MainFrame.Navigate(new SettingPage()); };
+            About_btn.PreviewMouseLeftButtonUp += (_, _) => { MainFrame.Navigate(new About()); };
             DownloadTaskPage_btn.PreviewMouseLeftButtonUp += (_, _) => { MainFrame.Navigate(new DownloadTaskPage()); };
         }
 

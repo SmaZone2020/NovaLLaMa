@@ -34,8 +34,9 @@
         <!-- 加载蒙版 -->
         <Grid x:Name="LoadingOverlay" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#80616161">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ui:FontIcon  Icon="{x:Static ui:SegoeFluentIcons.Cafe}" FontSize="69" Foreground="#FF7F7F7F"></ui:FontIcon>
                 <ProgressBar IsIndeterminate="True" Width="284" Height="20" Margin="10" Foreground="White"/>
-                <TextBlock Text="正在加载，请稍候..." Foreground="White" Margin="10" FontSize="18" TextAlignment="Center"/>
+                <TextBlock Text="Loading, let's have a cup of coffee first..." Foreground="White" Margin="10" FontSize="18" TextAlignment="Center"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UserPages\Tips\fox.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.9.30" />
     <PackageReference Include="LLamaSharp" Version="0.16.0" />
     <PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.16.0" />
@@ -20,6 +24,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UserPages\Tips\fox.jpg" />
   </ItemGroup>
 
 </Project>

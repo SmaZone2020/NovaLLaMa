@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGUFLoader.UserPages.Tips;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace GGUFLoader.UserPages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow.NavigateToPage(new Tip_CreatNewSessionPage());
+            mainWindow.NavigateToPage(new Tip_ViewDevelopers());
         }
     }
 }

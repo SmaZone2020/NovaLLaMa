@@ -1,15 +1,44 @@
-﻿<Page x:Class="GGUFLoader.UserPages.Tips.Tip_ViewDevelopers"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GGUFLoader.UserPages.Tips"
       xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf" x:Class="GGUFLoader.UserPages.Tips.Tip_ViewDevelopers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Tip_ViewDevelopers">
 
+    <!-- 页面背景 -->
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Width="560">
+            <!-- 头像 -->
+            <Border Width="100" Margin="0,0,0,10" Height="100" HorizontalAlignment="Center" CornerRadius="35,35,35,35">
+                <Border.Background>
+                    <ImageBrush ImageSource="/UserPages/Tips/fox.jpg"/>
+                </Border.Background>
+            </Border>
+
+            <!-- 开发人员名称 -->
+            <TextBlock Text="Sm4Z0n3 End1n9" FontSize="24" FontWeight="Bold" 
+                           HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="#FF757575"/>
+
+            <!-- 开发人员简介 -->
+            <TextBlock Text="A 2006 student from Xi'an, Shaanxi. I work at Nova IT Studio. I like C# software development and have some knowledge of C++, PHP, and web development." 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Center" Margin="0,0,0,20" FontSize="18"/>
+
+            <!-- 按钮面板 -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- 个人网站按钮 -->
+                <Button Content="Website" Click="WebsiteButton_Click" Width="100"/>
+
+                <!-- 邮箱按钮 -->
+                <Button Content="Email" Click="EmailButton_Click" Width="100" Margin="20,0,20,0"/>
+
+                <Button Content="Telegram" Click="TelegramButton_Click" Width="100"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

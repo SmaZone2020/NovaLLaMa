@@ -52,7 +52,7 @@
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}"/>
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="About">
+                <ui:NavigationViewItem Content="About" Name="About_btn">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}"/>
                     </ui:NavigationViewItem.Icon>
