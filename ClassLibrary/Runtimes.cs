@@ -19,6 +19,15 @@ namespace ClassLibrary
             public static List<ChatHistory> ChatHistory { get; set; }
         }
     }
+
+    public class Creating
+    {
+        public static string Name { get; set; }
+        public static string Model { get; set; }
+        public static string AssistantName { get;set; }
+        public static string ID { get; set; }
+    }
+
     public class DownloadTask : INotifyPropertyChanged
     {
         private long _downloadedSizeMB;

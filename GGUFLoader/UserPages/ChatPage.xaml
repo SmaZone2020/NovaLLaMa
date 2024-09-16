@@ -8,27 +8,35 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChatPage" Loaded="Page_Loaded">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid VerticalAlignment="Top" Height="46">
-            <ComboBox x:Name="ModelList" Height="36" Margin="49,0,0,0" VerticalAlignment="Center" Width="324"></ComboBox>
-            <Button x:Name="newSession" Height="36" Width="36" Margin="381,0,0,0" ToolTip="Creat New Session" Padding="5,5,5,5" Click="newSession_Click">
+            <Button x:Name="newSession" Height="36" Width="36" ToolTip="Creat New Session" Padding="5,5,5,5" Click="newSession_Click" Margin="48,0,0,0">
                 <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Add}"/>
             </Button>
-            <Button x:Name="delSession" Height="36" Width="36" Margin="426,0,0,0" ToolTip="Delete The Session" Padding="5,5,5,5" Click="delSession_Click">
+            <Button x:Name="delSession" Height="36" Width="36" Margin="95,0,0,0" ToolTip="Delete The Session" Padding="5,5,5,5" Click="delSession_Click">
                 <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Delete}"/>
             </Button>
+            <TextBlock x:Name="selectModel" Height="24" Margin="136,0,10,0" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="17"/>
         </Grid>
 
-        <ui:NavigationView Name="ChatSessions" IsBackButtonVisible="Collapsed" IsPaneOpen="False" CompactModeThresholdWidth="180" Margin="0,50,0,0">
+        <ui:NavigationView Name="ChatSessions" IsBackButtonVisible="Collapsed" IsPaneOpen="False" CompactModeThresholdWidth="180" Margin="0,50,0,0" SelectionChanged="ChatSessions_SelectionChanged">
             <Grid>
                 <StackPanel x:Name="DialogStackPanel" Margin="0,0,0,40">
 
                 </StackPanel>
                 <TextBox x:Name="input_Message" Height="25" TextWrapping="Wrap" Margin="0,0,40,2" VerticalAlignment="Bottom" PreviewKeyDown="TextBox_PreviewKeyDown"/>
-                <Button Height="32" Margin="0,0,4,2" VerticalAlignment="Bottom" Width="32" Padding="2,2,2,2" Click="Button_Click" HorizontalAlignment="Right">
+                <Button x:Name="send_btn" Height="32" Margin="0,0,4,2" VerticalAlignment="Bottom" Width="32" Padding="2,2,2,2" Click="Button_Click" HorizontalAlignment="Right">
                     <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Send}"/>
                 </Button>
             </Grid>
         </ui:NavigationView>
+        
+        <!-- 加载蒙版 -->
+        <Grid x:Name="LoadingOverlay" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#80616161">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ProgressBar IsIndeterminate="True" Width="284" Height="20" Margin="10" Foreground="White"/>
+                <TextBlock Text="正在加载，请稍候..." Foreground="White" Margin="10" FontSize="18" TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

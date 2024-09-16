@@ -48,7 +48,7 @@ namespace GGUFLoader.UserPages
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-
+                //MessageBox.Show($"{gguf.Name}\n{gguf.Version}\n{gguf.MetadataKVCount}\n{gguf.MateData.FirstOrDefault().Value}");
                 string modelName = Path.GetFileNameWithoutExtension(filePath);
                 int param = 8;
                 string addDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -66,6 +66,7 @@ namespace GGUFLoader.UserPages
                 ConfigIO.AddModel(newModel.Name, newModel.Param, newModel.AddDate, newModel.FilePath, newModel.Setting);
                 var mainWindow = (MainWindow)Application.Current.MainWindow;
                 mainWindow.NavigateToPage(new LocalModelPage());
+
             }
         }
     }

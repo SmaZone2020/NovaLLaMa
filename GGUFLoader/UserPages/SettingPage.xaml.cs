@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using ClassLibrary;
+using Microsoft.Windows.Themes;
+using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 
 namespace GGUFLoader.UserPages
 {
@@ -26,23 +28,24 @@ namespace GGUFLoader.UserPages
         public SettingPage()
         {
             InitializeComponent();
-        }        // 加载安装目录（模拟从配置文件读取路径）
+            dark_mode.IsOn = ThemeSetting.Dark;
+        } 
         private void LoadInstallPath()
         {
             installPath = ConfigIO.GetInstallPath();
-            UpdateInstallPathDisplay();
-        }
-
-        private void UpdateInstallPathDisplay()
-        {
-            InstallPathTextBlock.Text = !string.IsNullOrEmpty(installPath) ? installPath : "none";
         }
 
         private void SelectInstallPath_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Directory.Exists(installPath))
+            {
+                ConfigIO.SetInstallPath(installPath);
+            }
+            else
+            {
+                MessageBox.Show($"[{installPath}] does not exist.");
+            }
         }
-
 
         private void ClearData_Click(object sender, RoutedEventArgs e)
         {
@@ -59,6 +62,19 @@ namespace GGUFLoader.UserPages
             catch (Exception ex)
             {
                 iNKORE.UI.WPF.Modern.Controls.MessageBox.Show($"Error clearing data:{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dark_mode_Toggled(object sender, RoutedEventArgs e)
+        {
+            ThemeSetting.Dark = dark_mode.IsOn;
+            if(dark_mode.IsOn == true)
+            {
+                ThemeSetting.SetRequestedTheme("Dark");
+            }
+            else
+            {
+                ThemeSetting.SetRequestedTheme("Light");
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
@@ -44,8 +45,9 @@ namespace ClassLibrary
                 CREATE TABLE IF NOT EXISTS Sessions (
                     Name TEXT NOT NULL,
                     CreatDate TEXT NOT NULL,
-                    ModelTEXT NOT NULL,
+                    ModelName TEXT NOT NULL,
                     ID TEXT NOT NULL,
+                    AssistantName TEXT NOT NULL,
                     Content TEXT NOT NULL
                 );";
                 ExecuteNonQuery(connection, createSessionsTable);
@@ -175,20 +177,38 @@ namespace ClassLibrary
             }
         }
 
-        public static void AddSession(string name, string creatDate, string modelName, string id)
+        public static void AddSession(string name, string creatDate, string modelName, string id,string assistantName, string setting = "[]")
         {
             using (var connection = new SQLiteConnection($"Data Source={_dbFilePath};Version=3;"))
             {
                 connection.Open();
-                string query = "INSERT INTO Sessions (Name, CreatDate, ModelName, ID, Content) VALUES (@Name, @CreatDate, @ModelName, @ID, @Content)";
+                string query = "INSERT INTO Sessions (Name, CreatDate, ModelName, ID, AssistantName, Content) VALUES (@Name, @CreatDate, @ModelName, @ID, @AssistantName, @Content)";
 
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", name);
                     command.Parameters.AddWithValue("@CreatDate", creatDate);
                     command.Parameters.AddWithValue("@ModelName", modelName);
+                    command.Parameters.AddWithValue("@ID", id); 
+                        command.Parameters.AddWithValue("@AssistantName", assistantName);
+                    command.Parameters.AddWithValue("@Content", $"[{{\"role\":\"system\",\"content\":\"{setting}\"}}]");
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void UpdateSessionContent(string id, string newContent)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={_dbFilePath};Version=3;"))
+            {
+                connection.Open();
+                string query = "UPDATE Sessions SET Content = @Content WHERE ID = @ID";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
                     command.Parameters.AddWithValue("@ID", id);
-                    command.Parameters.AddWithValue("@Content", "");
+                    command.Parameters.AddWithValue("@Content", newContent);
 
                     command.ExecuteNonQuery();
                 }
@@ -217,7 +237,7 @@ namespace ClassLibrary
             using (var connection = new SQLiteConnection($"Data Source={_dbFilePath};Version=3;"))
             {
                 connection.Open();
-                string query = "SELECT Name, CreatDate, ModelName, ID, Content FROM Sessions";
+                string query = "SELECT Name, CreatDate, ModelName, ID ,AssistantName, Content FROM Sessions";
 
                 using (var command = new SQLiteCommand(query, connection))
                 using (var reader = command.ExecuteReader())
@@ -230,7 +250,8 @@ namespace ClassLibrary
                             CreatDate = reader["CreatDate"].ToString(),
                             ModelName = reader["ModelName"].ToString(),
                             ID = reader["ID"].ToString(),
-
+                            AssistantName = reader["AssistantName"].ToString(),
+                            Chats = JsonConvert.DeserializeObject<ChatHistory[]>(reader["Content"].ToString())
                         };
 
                         sessions.Add(session);

@@ -1,0 +1,24 @@
+﻿<Page x:Class="GGUFLoader.UserPages.Tip_CreatNewSessionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:local="clr-namespace:GGUFLoader.UserPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Tip_CreatNewSessionPage">
+    <StackPanel VerticalAlignment="Center">
+
+        <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.AddFriend}" FontSize="72" Margin="0,0,0,20" Foreground="#FF1CB725"/>
+
+        <TextBlock Text="Wow, you completed a lot of steps." FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock Text="Let's select a model and create a session!" FontSize="20" TextAlignment="Center" Foreground="#FF848484"/>
+
+        <ui:AutoSuggestBox x:Name="Name" Width="240" PlaceholderText="Enter a name for this session" Margin="0,15,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></ui:AutoSuggestBox>
+        <ui:AutoSuggestBox x:Name="ID" Width="245" Margin="0,20,0,0" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></ui:AutoSuggestBox>
+        <ComboBox x:Name="ModelList" Height="34" Width="310" HorizontalAlignment="Center" Margin="0,20,0,0" Text="Select a model" ToolTip="Select a model" HorizontalContentAlignment="Center"/>
+
+        <Button x:Name="Next" Content="Next"  HorizontalAlignment="Center" Margin="0,18,0,0" Click="AddSession_Click"/>
+    </StackPanel>
+</Page>

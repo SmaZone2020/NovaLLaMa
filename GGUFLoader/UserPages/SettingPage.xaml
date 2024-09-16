@@ -18,14 +18,15 @@
         </Grid.RowDefinitions>
 
         <!-- 安装目录标签和显示 -->
-        <TextBlock Grid.Row="0" Text="当前安装目录：" FontWeight="Bold" VerticalAlignment="Center" />
-        <TextBlock Grid.Row="1" x:Name="InstallPathTextBlock" Text="未设置安装目录" Margin="0,5,0,10" />
+        <TextBlock Grid.Row="0" Text="Install Path：" FontWeight="Bold" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="1" x:Name="InstallPathTextBlock" Text="NONE" Margin="0,5,0,10" />
 
         <!-- 选择安装目录按钮 -->
-        <Button Grid.Row="2" Content="选择安装目录" Width="150" HorizontalAlignment="Left" Click="SelectInstallPath_Click" />
+        <Button Grid.Row="2" Content="Save" Width="150" HorizontalAlignment="Left" Click="SelectInstallPath_Click" />
 
         <!-- 清除数据按钮 -->
-        <Button Grid.Row="2" Content="清除数据" Width="150" HorizontalAlignment="Right" Click="ClearData_Click" />
+        <Button Grid.Row="2" Content="Clean Data" Width="150" HorizontalAlignment="Right" Click="ClearData_Click" Background="#B3FF0000" />
+        <ui:ToggleSwitch x:Name="dark_mode" Height="30" Margin="10,15,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" OffContent="Dark Mode" Toggled="dark_mode_Toggled" OnContent="Light Mode"/>
 
     </Grid>
 </Page>

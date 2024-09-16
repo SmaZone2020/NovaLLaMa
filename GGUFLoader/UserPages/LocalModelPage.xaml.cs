@@ -16,7 +16,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-
+using LLama.Common;
+using LLama;
+using LLama.Transformers;
+using MessageBox = iNKORE.UI.WPF.Modern.Controls.MessageBox;
 namespace GGUFLoader.UserPages
 {
     /// <summary>
@@ -43,7 +46,6 @@ namespace GGUFLoader.UserPages
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-
                 string modelName = Path.GetFileNameWithoutExtension(filePath);
                 int param = 8;
                 string addDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -60,6 +62,7 @@ namespace GGUFLoader.UserPages
                 };
                 ConfigIO.AddModel(newModel.Name, newModel.Param, newModel.AddDate, newModel.FilePath, newModel.Setting);
                 Models.Add(newModel);
+
             }
         }
         private void DeleteModelButton_Click(object sender, RoutedEventArgs e)
@@ -70,7 +73,6 @@ namespace GGUFLoader.UserPages
                 Models.Remove(selectedModel);
             }
         }
-
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ModelListView.SelectedItem is Model selectedModel)

@@ -47,6 +47,7 @@ namespace ClassLibrary
         {
             Name = sessionName;
         }
+        public string AssistantName { get; set; }
         public string CreatDate { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         public string Name { get; set; }
         public string ModelName { get; set; }
