@@ -6,10 +6,26 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>nllama.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="publish\**" />
+    <Compile Remove="Release\**" />
+    <EmbeddedResource Remove="publish\**" />
+    <EmbeddedResource Remove="Release\**" />
+    <None Remove="publish\**" />
+    <None Remove="Release\**" />
+    <Page Remove="publish\**" />
+    <Page Remove="Release\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="UserPages\Tips\fox.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="nllama.ico" />
   </ItemGroup>
 
   <ItemGroup>

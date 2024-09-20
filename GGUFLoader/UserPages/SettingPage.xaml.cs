@@ -24,7 +24,6 @@ namespace GGUFLoader.UserPages
     /// </summary>
     public partial class SettingPage : Page
     {
-        private string installPath;
         public SettingPage()
         {
             InitializeComponent();
@@ -32,18 +31,18 @@ namespace GGUFLoader.UserPages
         } 
         private void LoadInstallPath()
         {
-            installPath = ConfigIO.GetInstallPath();
+            InstallPathTextBlock.Text = ConfigIO.GetInstallPath();
         }
 
         private void SelectInstallPath_Click(object sender, RoutedEventArgs e)
         {
-            if(Directory.Exists(installPath))
+            if(Directory.Exists(InstallPathTextBlock.Text))
             {
-                ConfigIO.SetInstallPath(installPath);
+                ConfigIO.SetInstallPath(InstallPathTextBlock.Text);
             }
             else
             {
-                MessageBox.Show($"[{installPath}] does not exist.");
+                MessageBox.Show($"[{InstallPathTextBlock.Text}] does not exist.");
             }
         }
 
@@ -51,7 +50,7 @@ namespace GGUFLoader.UserPages
         {
             try
             {
-                string configFilePath = Path.Combine(installPath, "config.ndbf");
+                string configFilePath = "config.ndbf";
 
                 if (File.Exists(configFilePath))
                 {

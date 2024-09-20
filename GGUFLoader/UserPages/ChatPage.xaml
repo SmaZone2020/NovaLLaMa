@@ -21,9 +21,12 @@
 
         <ui:NavigationView Name="ChatSessions" IsBackButtonVisible="Collapsed" IsPaneOpen="False" CompactModeThresholdWidth="180" Margin="0,50,0,0" SelectionChanged="ChatSessions_SelectionChanged">
             <Grid>
-                <StackPanel x:Name="DialogStackPanel" Margin="0,0,0,40">
+                <ScrollViewer x:Name="DialogScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="DialogStackPanel" Margin="0,0,0,40">
+                        <!-- 这里是要添加的内容 -->
+                    </StackPanel>
+                </ScrollViewer>
 
-                </StackPanel>
                 <TextBox x:Name="input_Message" Height="25" TextWrapping="Wrap" Margin="0,0,40,2" VerticalAlignment="Bottom" PreviewKeyDown="TextBox_PreviewKeyDown"/>
                 <Button x:Name="send_btn" Height="32" Margin="0,0,4,2" VerticalAlignment="Bottom" Width="32" Padding="2,2,2,2" Click="Button_Click" HorizontalAlignment="Right">
                     <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Send}"/>

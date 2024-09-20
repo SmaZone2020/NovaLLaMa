@@ -182,8 +182,8 @@ namespace GGUFLoader.UserPages
                     UpdateText();
                 }
             }
+            DialogScrollViewer.ScrollToEnd();
         }
-
 
         private void newSession_Click(object sender, RoutedEventArgs e)
         {
@@ -266,7 +266,7 @@ namespace GGUFLoader.UserPages
 
             _chatHistory.AddMessage(AuthorRole.Assistant, assistantResponse);
             await AddDialogTextAsync(nowSession.AssistantName, assistantResponse, chatColor);
-            send_btn.IsEnabled = true;
+            input_Message.IsEnabled = true;
             input_Message.Text = "";
 
         }
