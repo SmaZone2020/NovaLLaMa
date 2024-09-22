@@ -40,10 +40,6 @@ NovaLLaMa 是一个功能强大的 gguf 文件模型加载器，旨在为开发�
 3. 提交你的修改
 4. 创建 Pull Request
 
-### 许可证
-
-本项目采用 MIT 许可证。
-
 ### 联系方式
 
 * **GitHub:** [https://github.com/SmaZone2020/NovaLLaMa](https://github.com/SmaZone2020/NovaLLaMa)
