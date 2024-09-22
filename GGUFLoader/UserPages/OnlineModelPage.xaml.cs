@@ -34,10 +34,12 @@ namespace GGUFLoader.UserPages
         {
             try
             {
+                LoadingOverlay.Visibility = System.Windows.Visibility.Visible;
                 brands = await ModelService.GetAllBrandsAsync();
                 BrandComboBox.ItemsSource = brands;
                 BrandComboBox.DisplayMemberPath = "Name";
                 BrandComboBox.SelectedValuePath = "Url";
+                LoadingOverlay.Visibility = System.Windows.Visibility.Collapsed;
             }
             catch (Exception ex)
             {
@@ -51,8 +53,10 @@ namespace GGUFLoader.UserPages
             {
                 try
                 {
+                    LoadingOverlay.Visibility = System.Windows.Visibility.Visible;
                     var modelDetails = await ModelService.GetModelDetailsAsync(selectedUrl);
                     ModelListView.ItemsSource = modelDetails;
+                    LoadingOverlay.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 catch (Exception ex)
                 {

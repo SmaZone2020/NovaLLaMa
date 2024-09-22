@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GGUFLoader.UserPages"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OnlineModelPage">
@@ -25,5 +26,12 @@
             </ListView>
             
         </DockPanel>
+        <Grid x:Name="LoadingOverlay" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#80616161">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ui:FontIcon  Icon="{x:Static ui:SegoeFluentIcons.Cafe}" FontSize="69" Foreground="#FF7F7F7F"></ui:FontIcon>
+                <ProgressBar IsIndeterminate="True" Width="284" Height="20" Margin="10" Foreground="White"/>
+                <TextBlock Text="Loading, let's have a cup of coffee first..." Foreground="White" Margin="10" FontSize="18" TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
